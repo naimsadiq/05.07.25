@@ -1,123 +1,152 @@
-*{
+/* === বেসিক এবং বডি স্টাইল === */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
 }
 
-.navbar{
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #556B67; /* ছবির বাইরের ধূসর-সবুজ ব্যাকগ্রাউন্ড */
+    padding: 40px 20px; /* body-তে প্যাডিং দিলে কন্টেইনারের চারপাশে স্পেস তৈরি হবে */
+}
+
+/* === মূল কন্টেইনার === */
+.page-container {
+    max-width: 1200px; /* কন্টেইনারের সর্বোচ্চ প্রস্থ */
+    margin: 0 auto;    /* কন্টেইনারকে পেজের মাঝখানে আনতে */
+    background-color: #D8FC92; /* ভেতরের সবুজ ব্যাকগ্রাউন্ড */
+    border-radius: 10px; /* হালকা গোলাকার বর্ডার */
+    overflow: hidden;  /* বর্ডারের বাইরে কিছু গেলে লুকিয়ে ফেলবে */
+}
+
+/* === হেডার / Navbar === */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #000;
+    background-color: #111; /* প্রায় কালো একটি রঙ */
     color: white;
-    padding: 15px 0 10px;
-    flex: 1;
-    max-width: 1200px;
-    margin: 0 auto;
-
+    padding: 20px 40px; /* ভেতরে সুন্দর প্যাডিং */
 }
 
-.navbar .logo{
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding-left: 10px;
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
 }
 
-.navbar ul{
+.navbar .menu-bar ul {
     display: flex;
     list-style-type: none;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    flex: 2;
+    gap: 30px; /* আইটেমগুলোর মধ্যে দূরত্ব */
 }
 
-.navbar ul li{
-    margin-right: 30px;
-    /* padding: 7px 10px; */
-}
-
-.navbar ul li a{
+.navbar .menu-bar a {
     text-decoration: none;
     font-size: 16px;
-    cursor: pointer;
     color: white;
+    transition: color 0.3s;
 }
 
-.navbar ul li a:hover{
-    color: red;
-}
-.navbar .btn{
-    display: flex;
-    margin-right: 15px;
+.navbar .menu-bar a:hover {
+    color: #D8FC92; /* হোভার করলে সবুজ হবে */
 }
 
-.navbar .btn button{
-    font-size: 16px;
-    padding: 10px 15px;
-    border: none;
-    margin-left: 5px;
-    border-radius: 30px;
-    font-weight: bold;
-    color: white;
-    background-color: #292727;
-}
-
-.navbar .btn button:hover{
-    background-color: white;
-    color: #000;
-}
-
-.main-content{
+/* === হেডার বাটনসমূহ === */
+.auth-buttons {
     display: flex;
     align-items: center;
-    gap: 40px;
-    flex: 1;
-    padding: 50px;
-    background-color: #D8FC92;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-.left-content{
-
-}
-.left-content h1{
-    font-size: 40px;
-    padding-bottom: 20px;
+    gap: 25px; /* বাটনগুলোর মধ্যে দূরত্ব */
 }
 
-.left-content p{
-    font-size: 19px;
-    padding-bottom: 20px;
+.auth-buttons .signin-link {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+.auth-buttons .signup-btn {
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    color: black;
+    background-color: white; /* ছবির মতো সাদা ব্যাকগ্রাউন্ড */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.signup-btn:hover {
+    background-color: #ddd;
+}
+
+
+/* === মেইন কনটেন্ট === */
+.main-content {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* দুটি কলামের মধ্যে দূরত্ব */
+    padding: 60px 40px; /* মেইন সেকশনের ভেতরের প্যাডিং */
 }
 
 .left-content, .right-content {
-  flex: 1;
+    flex: 1; /* দুটি কলামকে সমান জায়গা দেওয়া হলো */
 }
-.right-content img{
+
+/* === বাম দিকের কনটেন্ট === */
+.left-content h1 {
+    font-size: 52px; /* বড় এবং আকর্ষণীয় শিরোনাম */
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.left-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.right-content img {
     width: 100%;
     height: auto;
-    border-radius: 5px;
+    border-radius: 8px; /* ছবিতে হালকা গোলাকার বর্ডার */
+    display: block;
 }
 
-.left-content, .int{
-    text-align: center;
-    width: 100%;
-
+/* === Subscribe ফর্মের ডিজাইন (সবচেয়ে গুরুত্বপূর্ণ অংশ) === */
+.subscribe-form {
+    display: flex; /* ইনপুট এবং বাটনকে পাশাপাশি আনার জন্য */
+    border: 1px solid #aaa; /* পুরো ফর্মের চারপাশে একটি বর্ডার */
+    border-radius: 8px; /* পুরো ফর্মকে গোলাকার করা হলো */
+    overflow: hidden; /* ভেতরের আইটেম যেন বাইরে না যায় */
+    background-color: white; /* ইনপুটের ব্যাকগ্রাউন্ড সাদা */
 }
 
-.int input{
-    font-size: 18px;
-    border: 1px solid grey;
-    padding: 10px;
-    color: #000;
+.subscribe-form input {
+    flex-grow: 1; /* ইনপুটকে বাকি সব জায়গা নিতে বলা হলো */
+    border: none; /* নিজস্ব বর্ডার তুলে ফেলা হলো */
+    padding: 15px;
+    font-size: 16px;
+    outline: none; /* ক্লিক করলে যে বর্ডার আসে, তা বন্ধ করা হলো */
 }
 
-.s-btn{
-    font-size: 18px;
-    border: 1px solid grey;
-    padding: 10px;
-    color: #000;
+.subscribe-form button {
+    border: none;
+    background-color: #111; /* কালো ব্যাকগ্রাউন্ড */
+    color: white;
+    padding: 15px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    /* বাম দিকে একটি বর্ডার দেওয়া হলো যা ইনপুট থেকে বাটনকে আলাদা করে */
+    border-left: 1px solid #aaa; 
+    transition: background-color 0.3s;
+}
 
+.subscribe-form button:hover {
+    background-color: #333;
 }
